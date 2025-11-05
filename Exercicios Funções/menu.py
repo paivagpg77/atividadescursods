@@ -77,14 +77,35 @@ def vetor_maior():
   print(f'O maior vetor é {maior}')
 
 
+def media_vetor():
+  vetor = vetor_aleatorio()
+  if len(vetor) == 0:
+    print('Não é possível calcular a média do vetor, vetor é vazio')
+    return
+  media = sum(vetor) / len(vetor)
+  print(f'A média dos vetores é igual a {media:.1f}')
+
+
+def ordenar_vetor():
+    n = int(input("Digite o número de elementos do vetor: "))
+  
+    vetor = []
+    for i in range(n):
+        valor = int(input(f"Digite o elemento {i+1}: "))
+        vetor.append(valor)
+    
+    print("Vetor original:", vetor)
+    vetor.sort()
+    print("Vetor em ordem crescente:", vetor)
+
 print('MENU')
-print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU \n [6] CONTAGEM DE LETRAS \n [7] VER SE A PALAVRA ESTÁ CONTIDA NA OUTRA \n [8] GERACÃO DE VETOR ALEATÓRIO \n [9] CALCULANDO MAIOR VETOR'
+print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU \n [6] CONTAGEM DE LETRAS \n [7] VER SE A PALAVRA ESTÁ CONTIDA NA OUTRA \n [8] GERACÃO DE VETOR ALEATÓRIO \n [9] CALCULANDO MAIOR VETOR \n [10] MÉDIA DE VETORES \n [11]COLOCANDO VETOR EM CRESCENTE'
  )
 
 while True:
     while True:
       escolha = int(input('Escolha qual o seu item do Menu você quer: '))
-      if escolha < 0 or  escolha > 9:
+      if escolha < 0 or  escolha > 11:
 
           print('Número invalido..')
       else:
@@ -110,3 +131,7 @@ while True:
       vetor_aleatorio()
     elif escolha == 9:
       vetor_maior()
+    elif escolha == 10:
+      media_vetor()
+    elif escolha ==11:
+      ordenar_vetor()
