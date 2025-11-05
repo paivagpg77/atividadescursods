@@ -69,16 +69,22 @@ def vetor_aleatorio():
   vetor = [random.randint(intervalo, fim) for _ in range(tamanho)]
   print('O VETOR GERADO ALEATORIAMENTE É ESSE EM BAIXO')
   print(vetor)
+  return vetor
+
+def vetor_maior():
+  vetor = vetor_aleatorio()
+  maior = max(vetor)  
+  print(f'O maior vetor é {maior}')
 
 
 print('MENU')
-print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU \n [6] CONTAGEM DE LETRAS \n [7] VER SE A PALAVRA ESTÁ CONTIDA NA OUTRA \n [8] GERACÃO DE VETOR ALEATÓRIO'
+print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU \n [6] CONTAGEM DE LETRAS \n [7] VER SE A PALAVRA ESTÁ CONTIDA NA OUTRA \n [8] GERACÃO DE VETOR ALEATÓRIO \n [9] CALCULANDO MAIOR VETOR'
  )
 
 while True:
     while True:
       escolha = int(input('Escolha qual o seu item do Menu você quer: '))
-      if escolha < 0 or  escolha > 8:
+      if escolha < 0 or  escolha > 9:
 
           print('Número invalido..')
       else:
@@ -102,3 +108,5 @@ while True:
       palavra_contida()
     elif escolha ==8:
       vetor_aleatorio()
+    elif escolha == 9:
+      vetor_maior()
