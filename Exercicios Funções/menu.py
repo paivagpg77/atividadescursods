@@ -42,31 +42,43 @@ def equacao():
         raiz2 = (-b - math.sqrt(delta)) / (2*a)
         print(f"A equação possui duas raízes reais: {raiz1} e {raiz2}")
 
-def gerar_matriz():
-    linhas = int(input("Digite o número de linhas: "))
-    colunas = int(input("Digite o número de colunas: "))
-    limite_inferior = int(input("Digite o limite inferior: "))
-    limite_superior = int(input("Digite o limite superior: "))
+def contagem_letra():
+    palavra = input('Digite uma palavra: ')
+    contagem = {}
+    for letra in palavra:
+      if letra in contagem:
+        contagem[letra] += 1
+      else:
+          contagem[letra] = 1 
+    print(contagem)
+  
+def palavra_contida():
+    palavra1 = input('Digite a primeira palavra: ').upper()
+    palavra2 = input('Digite a segunda palavra: ').upper()
+    
+    if palavra1 in palavra2:
+        print(f'A palavra 1 que é {palavra1} está contido em {palavra2}')
+    else:
+        print('A palavra 1 não está contida na palavra 2')
 
-    matriz = []
-    for i in range(linhas):
-        linha = []
-        for j in range(colunas):
-            valor = random.randint(limite_inferior, limite_superior)
-            linha.append(valor)
-        matriz.append(linha)
 
-    print("\nMatriz gerada:")
-    for linha in matriz:
-        print(linha)
+def vetor_aleatorio():
+  tamanho = int(input('Digite o tamanho do vetor: '))
+  intervalo = int(input('Digite o intervalo mínimo entre os vetores: '))
+  fim = int(input('Digite o valor máximo do vetor:  '))
+  vetor = [random.randint(intervalo, fim) for _ in range(tamanho)]
+  print('O VETOR GERADO ALEATORIAMENTE É ESSE EM BAIXO')
+  print(vetor)
+
 
 print('MENU')
-print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU')
+print('[0] SAIR \n [1]FORMANDO DATA \n [2] CALCULANDO CIRCUNFERÊNCIA \n [3] CONVERSÃO DE TEMPERATURA \n [4] HIPOTENUSA \n [5] EQUAÇÃO SEGUNDO GRAU \n [6] CONTAGEM DE LETRAS \n [7] VER SE A PALAVRA ESTÁ CONTIDA NA OUTRA \n [8] GERACÃO DE VETOR ALEATÓRIO'
+ )
 
 while True:
     while True:
       escolha = int(input('Escolha qual o seu item do Menu você quer: '))
-      if escolha < 0 or  escolha > 5:
+      if escolha < 0 or  escolha > 8:
 
           print('Número invalido..')
       else:
@@ -84,3 +96,9 @@ while True:
             hipotenusa()
     elif escolha == 5:
             equacao()
+    elif escolha == 6:
+      contagem_letra()
+    elif escolha == 7:
+      palavra_contida()
+    elif escolha ==8:
+      vetor_aleatorio()
